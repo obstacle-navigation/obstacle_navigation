@@ -6,6 +6,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <cstdio>
+#include <cmath>
 //#include <vector>
 
 //to remap a subscriber to a different topic, type:
@@ -14,6 +15,7 @@
 image_transport::Publisher defaultPub;
 image_transport::Publisher depthThresholdPub;
 image_transport::Publisher depthThresholdBWPub;
+image_transport::Publisher motionDetectPub;
 
 int blobArea;
 int minXBound;
@@ -91,6 +93,15 @@ void getDepthThresholdBWImage(const cv::Mat& inputImage, cv::Mat& outputImage){
   }
 }
 
+void getImageDifference(const cv::Mat& image1, cv::Mat& image2){
+  std::cout << "trying to get image difference..." << std::endl;
+  for(int i=0;i<image1.rows;i++){
+    for(int j=0;j<image1.cols;j++){
+      image2.at<float>(i,j) = std::abs(image1.at<float>(i,j) - image2.at<float>(i,j));
+    }
+  }
+}
+
 //callback method for operations that require a depth image
 void depthCallback(const sensor_msgs::ImageConstPtr &msg)
 {
@@ -113,6 +124,14 @@ void depthCallback(const sensor_msgs::ImageConstPtr &msg)
   //depthThresholdOut.copyTo(temp);
   
   //printImageData(depthThresholdOut, "depthThesholdOut");
+  
+  if (lastImage.rows > 0) {
+    getImageDifference(cvImage_depth, lastImage);
+    bridge_image_depth->image = lastImage;
+    motionDetectPub.publish(bridge_image_depth->toImageMsg());
+  } else {
+    std::cout << "lastImage hasn't been created yet" << std::endl;
+  }
   
   lastImage = cvImage_depth;
   
@@ -147,8 +166,8 @@ void defaultCallback(const sensor_msgs::ImageConstPtr &msg)
   //ROS_INFO("Default applied?");
   defaultPub.publish(bridge_image->toImageMsg());
   
-  delete &bridge_image;
-  delete &cvImage;
+  //delete &bridge_image;
+  //delete &cvImage;
 }
 
 int main( int argc, char** argv)
@@ -161,8 +180,9 @@ int main( int argc, char** argv)
   image_transport::ImageTransport it(n);
   image_transport::Subscriber depthSub = it.subscribe("/camera/depth/image", 1, depthCallback);
   //Set up image publishers
-  depthThresholdPub = it.advertise("proj1/opencv/threshold/depth",1);
-  depthThresholdBWPub = it.advertise("proj1/opencv/threshold/depth/bw",1);
+  depthThresholdPub = it.advertise("obsnav/threshold/depth",1);
+  depthThresholdBWPub = it.advertise("obsnav/threshold/depth/bw",1);
+  motionDetectPub = it.advertise("obsnav/motiondetect",1);
   
   ROS_INFO("Started");
   //Transfer control to ROS

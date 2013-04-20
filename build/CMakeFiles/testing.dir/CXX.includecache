@@ -23,6 +23,8 @@ opencv2/highgui/highgui.hpp
 -
 cstdio
 -
+cmath
+-
 
 /opt/ros/groovy/include/XmlRpcDecl.h
 ros/macros.h
