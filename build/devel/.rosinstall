@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build/devel/setup.sh

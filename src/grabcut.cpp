@@ -1,0 +1,111 @@
+#include <ros/ros.h>
+#include <opencv/cv.h>
+#include <cv_bridge/cv_bridge.h>
+#include <sensor_msgs/Image.h>
+#include <image_transport/image_transport.h>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <cmvision/Blobs.h>
+
+image_transport::Publisher grabcutPub;
+cv::Rect maskRect;
+bool rect_is_set;
+
+//constructs a mask, given a rectangle
+void setRectInMask(cv::Mat& mask, cv::Rect rect){
+  assert( !mask.empty() ); //make sure the mask isn't empty
+  mask.setTo( cv::GC_BGD ); //sets all values in the mask to "certainly a background pixel"
+  (mask(rect)).setTo( cv::Scalar(cv::GC_PR_FGD) ); //sets everything inside the rect to "certainly a foreground pixel"
+}
+
+//constructs a mask, given the top_left and bottom_right Points
+void setRectInMask(cv::Mat& mask, cv::Point top_l, cv::Point bot_r){
+  assert( !mask.empty() ); //make sure the mask isn't empty
+  mask.setTo( cv::GC_BGD ); //sets all values in the mask to "certainly a background pixel"
+  cv::Rect rect(top_l.x, top_l.y, bot_r.x-top_l.x, bot_r.y-top_l.y); // creates a cv::Rect rect(x, y, width, height)
+  (mask(rect)).setTo( cv::Scalar(cv::GC_PR_FGD) ); //sets everything inside the rect to "certainly a foreground pixel"
+}
+
+void blobCallback(const cmvision::Blobs::ConstPtr& msg){
+  if (msg->blob_count > 0){
+    int maxAreaIndex = 0;
+    //find the largest blob
+    for (int i = 0; i < msg->blob_count; i++){
+      msg->blobs[i].area;      // blob area
+
+      if(msg->blobs[maxAreaIndex].area<msg->blobs[i].area)
+        maxAreaIndex = i;
+
+      msg->blobs[i].x;         // blob center x
+      msg->blobs[i].y;         // blob center y
+
+      msg->blobs[i].left;      // blob left x
+      msg->blobs[i].right;     // blob right x
+      msg->blobs[i].top;       // blob top x
+      msg->blobs[i].bottom;    // blob bottom x
+    }
+
+    //set maskRect to equal the rectangle around the largest blob
+    int width = msg->blobs[maxAreaIndex].right - msg->blobs[maxAreaIndex].left;
+    int height = msg->blobs[maxAreaIndex].bottom - msg->blobs[maxAreaIndex].top;
+    maskRect.x = msg->blobs[maxAreaIndex].left;
+    maskRect.y = msg->blobs[maxAreaIndex].top;
+    maskRect.width = width;
+    maskRect.height = height;
+    rect_is_set = true;
+    ROS_INFO("Mask set");
+  }
+  //if no blobs are detected, no mask is set, grabcut should not run
+  else{
+    rect_is_set = false;
+    ROS_INFO("Mask is not set");
+  }
+}
+
+void grabcutCallback(const sensor_msgs::ImageConstPtr &msg){
+  if(rect_is_set){
+    //Load image into OpenCV
+    cv_bridge::CvImagePtr bridge_image = cv_bridge::toCvCopy(msg, msg->encoding);
+    cv::Mat cvImage = bridge_image->image;
+    cv::Mat mask;
+  
+    cv::Mat bgModel, fgModel;
+    setRectInMask(mask, maskRect);
+
+    cv::grabCut(cvImage, mask, maskRect, bgModel, fgModel, 1, cv::GC_INIT_WITH_RECT); //should the mode be cv::GC_INIT_WITH_MASK ??
+    //cv::grabCut(cvImage, mask, maskRect, bgModel, fgModel, 1, cv::GC_INIT_WITH_MASK); 
+    
+    /*
+    //get pixels that are certainly and likely foreground
+    cvImage = cvImage & 1; //pixels that are foreground are encoded as 1 or 3
+    cv::Mat foreground(cvImage.size(),CV_8UC3,cv::Scalar(255,255,255)); //create a matrix that is all white
+    bridge_image->image.copyTo(foreground, cvImage); //only pixels that are 1's in cvImage will be copied over from bridge_image->image into foreground
+    bridge_image->image = foreground;
+    grabcutPub.publish(bridge_image->toImageMsg());
+    */
+
+    bridge_image->image = cvImage;
+    ROS_INFO("GRABCUT APPLIED!!");
+    grabcutPub.publish(bridge_image->toImageMsg());
+  }
+  else{
+    grabcutPub.publish(msg);
+  }
+}
+
+int main(int argc, char** argv){
+  //Init ROS
+  ros::init(argc, argv, "grabcut");
+  ros::NodeHandle n;
+  image_transport::ImageTransport it(n);
+
+  image_transport::Subscriber imageSub = it.subscribe("/camera/rgb/image_color", 1, grabcutCallback);  
+  ros::Subscriber blobSub = n.subscribe("/blobs", 1000, blobCallback);
+ 
+  grabcutPub = it.advertise("/proj1/opencv/grabcut_segmentation",1);
+
+  //Transfer control to ROS
+  ros::spin();
+  
+  return 0;
+}

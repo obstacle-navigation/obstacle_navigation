@@ -1,0 +1,109 @@
+#include "ros/ros.h"
+#include "sensor_msgs/Image.h"
+#include "std_msgs/String.h"
+#include "stdio.h"
+#include <sstream>
+#include <string>
+#include <iostream>
+
+ros::Publisher layer_pub;
+ros::Publisher string_msg;
+
+/**
+ * This tutorial demonstrates simple receipt of messages over the ROS system.
+ */
+
+void printarray (uint8_t arg[], int length) {
+  for (int n=0; n<length; n++)
+    std::cout << arg[n] << " ";
+  std::cout << "\n";
+}
+
+void depthImageCallback(const sensor_msgs::ImageConstPtr& msg)
+{
+  //ROS_INFO("I heard a thingy");
+  //ROS_INFO("I heard this message: " + msg + "\n");
+  //ROS_INFO("I heard this message: \n");
+
+  /*sensor_msgs::Image output;
+  output.header = msg->header;
+  output.height = msg->height;
+  output.width = msg->width;
+  output.encoding = msg->encoding;
+  output.is_bigendian = msg->is_bigendian;
+  output.step = msg->step;
+  output.data = msg->data;*/
+
+  uint32_t min = 255;
+  for (uint32_t i = 0; i < msg->step * msg->height; i++) {
+    if(msg->data[i]!=0 && msg->data[i]<min){
+      min = msg->data[i];
+      }
+    if(msg->data[i]>50 && msg->data[i]<100){
+      //ROS_INFO("%d", msg->data[i]);
+    }
+    //if (output.data[i] < 20 || output.data[i] > 50)
+      //output.data[i] = 0;
+  }
+
+  printarray(msg->data,msg->step * msg->height);
+  ROS_INFO("%d", min);
+  ROS_INFO("w:%d h:%d", msg->width, msg->height);
+
+  std_msgs::String out;
+  string_msg.publish(out);
+  
+  layer_pub.publish(msg);
+}
+
+int main(int argc, char **argv)
+{
+  /**
+   * The ros::init() function needs to see argc and argv so that it can perform
+   * any ROS arguments and name remapping that were provided at the command line. For programmatic
+   * remappings you can use a different version of init() which takes remappings
+   * directly, but for most command-line programs, passing argc and argv is the easiest
+   * way to do it.  The third argument to init() is the name of the node.
+   *
+   * You must call one of the versions of ros::init() before using any other
+   * part of the ROS system.
+   */
+  ros::init(argc, argv, "listener");
+
+  /**
+   * NodeHandle is the main access point to communications with the ROS system.
+   * The first NodeHandle constructed will fully initialize this node, and the last
+   * NodeHandle destructed will close down the node.
+   */
+  ros::NodeHandle n;
+
+  // advertise that we will publish images
+  layer_pub = n.advertise<sensor_msgs::Image>("layer_of_image", 1000);
+  string_msg = n.advertise<std_msgs::String>("image_matrix_print",1000);
+
+  /**
+   * The subscribe() call is how you tell ROS that you want to receive messages
+   * on a given topic.  This invokes a call to the ROS
+   * master node, which keeps a registry of who is publishing and who
+   * is subscribing.  Messages are passed to a callback function, here
+   * called chatterCallback.  subscribe() returns a Subscriber object that you
+   * must hold on to until you want to unsubscribe.  When all copies of the Subscriber
+   * object go out of scope, this callback will automatically be unsubscribed from
+   * this topic.
+   *
+   * The second parameter to the subscribe() function is the size of the message
+   * queue.  If messages are arriving faster than they are being processed, this
+   * is the number of messages that will be buffered up before beginning to throw
+   * away the oldest ones.
+   */
+  ros::Subscriber sub = n.subscribe("/camera/depth/image", 1000, depthImageCallback);
+
+  /**
+   * ros::spin() will enter a loop, pumping callbacks.  With this version, all
+   * callbacks will be called from within this thread (the main one).  ros::spin()
+   * will exit when Ctrl-C is pressed, or the node is shutdown by the master.
+   */
+  ros::spin();
+
+  return 0;
+}

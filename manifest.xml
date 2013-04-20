@@ -1,0 +1,22 @@
+<package>
+  <description brief="proj1">
+
+     proj1
+
+  </description>
+  <author>Eysa Lee</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/proj1</url>
+
+  <depend package="std_msgs"/>
+  <depend package="sensor_msgs"/>
+  <depend package="openni_camera"/>
+  <depend package="openni_launch"/>
+  <depend package="cv_bridge"/>
+  <depend package="opencv2"/>
+  <!-- <depend package="cmvision"/> -->
+
+</package>
+
+
