@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/nishome/eysalee/ros/rosbuild_ws/class-code/proj1/src/listener.cpp
+/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/src/listener.cpp
 ros/ros.h
-/nishome/eysalee/ros/rosbuild_ws/class-code/proj1/src/ros/ros.h
+/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/src/ros/ros.h
 sensor_msgs/Image.h
-/nishome/eysalee/ros/rosbuild_ws/class-code/proj1/src/sensor_msgs/Image.h
+/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/src/sensor_msgs/Image.h
 std_msgs/String.h
-/nishome/eysalee/ros/rosbuild_ws/class-code/proj1/src/std_msgs/String.h
+/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/src/std_msgs/String.h
 stdio.h
-/nishome/eysalee/ros/rosbuild_ws/class-code/proj1/src/stdio.h
+/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/src/stdio.h
 sstream
 -
 string

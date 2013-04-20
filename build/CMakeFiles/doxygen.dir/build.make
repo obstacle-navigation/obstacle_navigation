@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/proj1
+CMAKE_SOURCE_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build
+CMAKE_BINARY_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build
 
 # Utility rule file for doxygen.
 
@@ -43,7 +43,7 @@ CMAKE_BINARY_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build
 include CMakeFiles/doxygen.dir/progress.make
 
 CMakeFiles/doxygen:
-	$(CMAKE_COMMAND) -E cmake_progress_report /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "doxygen found"
 
 doxygen: CMakeFiles/doxygen
@@ -59,6 +59,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /nishome/eysalee/ros/rosbuild_ws/class-code/proj1 /nishome/eysalee/ros/rosbuild_ws/class-code/proj1 /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

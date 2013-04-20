@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/proj1
+CMAKE_SOURCE_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build
+CMAKE_BINARY_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -107,9 +107,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build/CMakeFiles /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -358,6 +358,19 @@ test-results-run/fast:
 .PHONY : test-results-run/fast
 
 #=============================================================================
+# Target rules for targets named testing
+
+# Build rule for target.
+testing: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 testing
+.PHONY : testing
+
+# fast build rule for target.
+testing/fast:
+	$(MAKE) -f CMakeFiles/testing.dir/build.make CMakeFiles/testing.dir/build
+.PHONY : testing/fast
+
+#=============================================================================
 # Target rules for targets named tests
 
 # Build rule for target.
@@ -457,6 +470,30 @@ src/opencv.cpp.s:
 	$(MAKE) -f CMakeFiles/opencv.dir/build.make CMakeFiles/opencv.dir/src/opencv.cpp.s
 .PHONY : src/opencv.cpp.s
 
+src/testing.o: src/testing.cpp.o
+.PHONY : src/testing.o
+
+# target to build an object file
+src/testing.cpp.o:
+	$(MAKE) -f CMakeFiles/testing.dir/build.make CMakeFiles/testing.dir/src/testing.cpp.o
+.PHONY : src/testing.cpp.o
+
+src/testing.i: src/testing.cpp.i
+.PHONY : src/testing.i
+
+# target to preprocess a source file
+src/testing.cpp.i:
+	$(MAKE) -f CMakeFiles/testing.dir/build.make CMakeFiles/testing.dir/src/testing.cpp.i
+.PHONY : src/testing.cpp.i
+
+src/testing.s: src/testing.cpp.s
+.PHONY : src/testing.s
+
+# target to generate assembly for a file
+src/testing.cpp.s:
+	$(MAKE) -f CMakeFiles/testing.dir/build.make CMakeFiles/testing.dir/src/testing.cpp.s
+.PHONY : src/testing.cpp.s
+
 src/transporter.o: src/transporter.cpp.o
 .PHONY : src/transporter.o
 
@@ -510,6 +547,7 @@ help:
 	@echo "... test-future"
 	@echo "... test-results"
 	@echo "... test-results-run"
+	@echo "... testing"
 	@echo "... tests"
 	@echo "... transporter"
 	@echo "... gtest"
@@ -520,6 +558,9 @@ help:
 	@echo "... src/opencv.o"
 	@echo "... src/opencv.i"
 	@echo "... src/opencv.s"
+	@echo "... src/testing.o"
+	@echo "... src/testing.i"
+	@echo "... src/testing.s"
 	@echo "... src/transporter.o"
 	@echo "... src/transporter.i"
 	@echo "... src/transporter.s"

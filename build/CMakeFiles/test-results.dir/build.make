@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/proj1
+CMAKE_SOURCE_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build
+CMAKE_BINARY_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build
 
 # Utility rule file for test-results.
 
@@ -43,7 +43,7 @@ CMAKE_BINARY_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build
 include CMakeFiles/test-results.dir/progress.make
 
 CMakeFiles/test-results:
-	/opt/ros/groovy/share/rosunit/scripts/summarize_results.py --nodeps proj1
+	/opt/ros/groovy/share/rosunit/scripts/summarize_results.py --nodeps obstacle-navigation
 
 test-results: CMakeFiles/test-results
 test-results: CMakeFiles/test-results.dir/build.make
@@ -58,6 +58,6 @@ CMakeFiles/test-results.dir/clean:
 .PHONY : CMakeFiles/test-results.dir/clean
 
 CMakeFiles/test-results.dir/depend:
-	cd /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /nishome/eysalee/ros/rosbuild_ws/class-code/proj1 /nishome/eysalee/ros/rosbuild_ws/class-code/proj1 /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build /nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build/CMakeFiles/test-results.dir/DependInfo.cmake --color=$(COLOR)
+	cd /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles/test-results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/test-results.dir/depend
 

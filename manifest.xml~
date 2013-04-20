@@ -15,7 +15,7 @@
   <depend package="openni_launch"/>
   <depend package="cv_bridge"/>
   <depend package="opencv2"/>
-  <depend package="cmvision"/>
+  <!-- <depend package="cmvision"/> -->
 
 </package>
 

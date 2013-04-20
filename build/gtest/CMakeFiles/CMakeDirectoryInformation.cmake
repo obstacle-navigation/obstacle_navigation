@@ -3,14 +3,14 @@
 
 # Relative path conversion top directories.
 SET(CMAKE_RELATIVE_PATH_TOP_SOURCE "/usr/src/gtest")
-SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build")
+SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build")
 
 # Force unix paths in dependencies.
 SET(CMAKE_FORCE_UNIX_PATHS 1)
 
 # The C and CXX include file search paths:
 SET(CMAKE_C_INCLUDE_PATH
-  "/nishome/eysalee/ros/rosbuild_ws/class-code/proj1/include"
+  "/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/include"
   "/opt/ros/groovy/include"
   "/opt/ros/groovy/include/opencv"
   "/usr/include/libusb-1.0"

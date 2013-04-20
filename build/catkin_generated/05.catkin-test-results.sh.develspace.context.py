@@ -1,7 +1,7 @@
 DEVELSPACE = True
 INSTALLSPACE = False
 
-CATKIN_DEVEL_PREFIX = '/nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build/devel'
+CATKIN_DEVEL_PREFIX = '/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build/devel'
 
 CATKIN_GLOBAL_BIN_DESTINATION = 'bin'
 CATKIN_GLOBAL_ETC_DESTINATION = 'etc'
@@ -19,12 +19,12 @@ CATKIN_PACKAGE_LIBEXEC_DESTINATION = ''
 CATKIN_PACKAGE_PYTHON_DESTINATION = ''
 CATKIN_PACKAGE_SHARE_DESTINATION = ''
 
-CMAKE_BINARY_DIR = '/nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build'
-CMAKE_CURRENT_BINARY_DIR = '/nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build'
-CMAKE_CURRENT_SOURCE_DIR = '/nishome/eysalee/ros/rosbuild_ws/class-code/proj1'
+CMAKE_BINARY_DIR = '/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build'
+CMAKE_CURRENT_BINARY_DIR = '/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build'
+CMAKE_CURRENT_SOURCE_DIR = '/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation'
 CMAKE_INSTALL_PREFIX = '/usr/local'
-CMAKE_SOURCE_DIR = '/nishome/eysalee/ros/rosbuild_ws/class-code/proj1'
+CMAKE_SOURCE_DIR = '/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation'
 
-PROJECT_NAME = 'proj1'
-PROJECT_BINARY_DIR = '/nishome/eysalee/ros/rosbuild_ws/class-code/proj1/build'
-PROJECT_SOURCE_DIR = '/nishome/eysalee/ros/rosbuild_ws/class-code/proj1'
+PROJECT_NAME = 'obstacle-navigation'
+PROJECT_BINARY_DIR = '/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build'
+PROJECT_SOURCE_DIR = '/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation'
