@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation
+CMAKE_SOURCE_DIR = /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build
+CMAKE_BINARY_DIR = /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build
 
 # Utility rule file for rospack_genmsg_libexe.
 
@@ -57,6 +57,6 @@ CMakeFiles/rospack_genmsg_libexe.dir/clean:
 .PHONY : CMakeFiles/rospack_genmsg_libexe.dir/clean
 
 CMakeFiles/rospack_genmsg_libexe.dir/depend:
-	cd /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles/rospack_genmsg_libexe.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles/rospack_genmsg_libexe.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rospack_genmsg_libexe.dir/depend
 

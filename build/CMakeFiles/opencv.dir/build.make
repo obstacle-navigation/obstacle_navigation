@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation
+CMAKE_SOURCE_DIR = /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build
+CMAKE_BINARY_DIR = /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/opencv.dir/depend.make
@@ -97,17 +97,17 @@ CMakeFiles/opencv.dir/src/opencv.cpp.o: /opt/ros/groovy/share/depth_image_proc/p
 CMakeFiles/opencv.dir/src/opencv.cpp.o: /opt/ros/groovy/share/image_geometry/package.xml
 CMakeFiles/opencv.dir/src/opencv.cpp.o: /opt/ros/groovy/share/image_proc/package.xml
 CMakeFiles/opencv.dir/src/opencv.cpp.o: /opt/ros/groovy/share/openni_launch/package.xml
-	$(CMAKE_COMMAND) -E cmake_progress_report /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opencv.dir/src/opencv.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/opencv.dir/src/opencv.cpp.o -c /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/src/opencv.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/opencv.dir/src/opencv.cpp.o -c /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/src/opencv.cpp
 
 CMakeFiles/opencv.dir/src/opencv.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencv.dir/src/opencv.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/src/opencv.cpp > CMakeFiles/opencv.dir/src/opencv.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/src/opencv.cpp > CMakeFiles/opencv.dir/src/opencv.cpp.i
 
 CMakeFiles/opencv.dir/src/opencv.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencv.dir/src/opencv.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/src/opencv.cpp -o CMakeFiles/opencv.dir/src/opencv.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/src/opencv.cpp -o CMakeFiles/opencv.dir/src/opencv.cpp.s
 
 CMakeFiles/opencv.dir/src/opencv.cpp.o.requires:
 .PHONY : CMakeFiles/opencv.dir/src/opencv.cpp.o.requires
@@ -143,6 +143,6 @@ CMakeFiles/opencv.dir/clean:
 .PHONY : CMakeFiles/opencv.dir/clean
 
 CMakeFiles/opencv.dir/depend:
-	cd /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles/opencv.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles/opencv.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/opencv.dir/depend
 
