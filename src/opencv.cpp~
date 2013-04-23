@@ -131,12 +131,12 @@ void explore2(int target, int row, int col, bool *checked) {
   if(row >=0 && row <= depthThreshold.rows && col >=0 && col <= depthThreshold.cols){
     float* rowp = depthThreshold.ptr<float>(row);
     //if(outputImage.at<float>(row,col) > 0){
-      if(rowp[col] > 0 && !checked[row*depthThreshold.rows+col]){
+      if(rowp[col] > 0 && checked[row*depthThreshold.rows+col]==0){
       //std::cout << "target found at " << row << ", " << col << std::endl;
       totalArea++;
       //outputImage.at<float>(row,col) = 0;
       curblobArea++;
-      checked[row*depthThreshold.rows+col]=true;
+      checked[row*depthThreshold.rows+col]=1;
       //std::cout << row << ", " << col << std::endl;
       if(curminXBound > col)
         curminXBound = col;
@@ -166,6 +166,32 @@ void explore2(int target, int row, int col, bool *checked) {
   }
 }
 
+//what about shrinking the array? turn 4 pixel blocks into 1 "pixel"
+void explore3(int target, int row, int col, bool *checked){
+  if(row >=0 && row <= depthThreshold.rows && col >=0 && col <= depthThreshold.cols){
+    float* rowp = depthThreshold.ptr<float>(row);
+    //if(outputImage.at<float>(row,col) > 0){
+      if(rowp[col] > 0 && checked[row*depthThreshold.rows+col]==0){
+      //std::cout << "target found at " << row << ", " << col << std::endl;
+      totalArea += 1;
+      curblobArea += 4;
+      checked[row*depthThreshold.rows+col]=1;
+      if(curminXBound > col)
+        curminXBound = col;
+      if(curminYBound > row)
+        curminYBound = row;
+      if(curmaxXBound < col)
+        curmaxXBound = col;
+      if(curmaxYBound < row)
+        curmaxYBound = row;
+      explore3(target, row-2, col, checked);
+      explore3(target, row+2, col, checked);
+      explore3(target, row, col-2, checked);
+      explore3(target, row, col+2, checked);
+    }
+  }
+}
+
 void explore(const cv::Mat& inputImage, cv::Mat& outputImage, int target) {
   blobArea = 0;
   minXBound = 1000;
@@ -174,14 +200,18 @@ void explore(const cv::Mat& inputImage, cv::Mat& outputImage, int target) {
   maxYBound = 0;
   totalArea = 0;
   int i = 0, j = 0;
-  bool checked[depthThreshold.rows*depthThreshold.cols];
-  bool *boolpointer = checked;
+  /*bool checked[depthThreshold.rows*depthThreshold.cols];
+  bool *boolpointer = checked;*/
   /*for(i = 0; i < depthThreshold.rows*depthThreshold.cols; i++){
-    boolpointer[i] = false;
+    if(boolpointer[i]!=false){
+        std::cout<<boolpointer[i]<<" ";
+        boolpointer[i] = false;
+      }
   }*/
-  //bool *boolpointer = new bool[depthThreshold.rows*depthThreshold.cols];
-  
-
+  /*bool *boolpointer = new bool[depthThreshold.rows*depthThreshold.cols];
+  boolpointer = {false};*/
+  bool *boolpointer;
+  boolpointer = (bool*) calloc(depthThreshold.rows*depthThreshold.cols,sizeof(bool));
 //Print and checking the blob area
 
 
@@ -205,7 +235,7 @@ void explore(const cv::Mat& inputImage, cv::Mat& outputImage, int target) {
   for(i=0; i < inputImage.rows; i++) {
     //const float* rowp = inputImage.ptr<float>(i);
     for(j=0; j < inputImage.cols; j++) {
-      if(inputImage.at<float>(i,j) > 0) {
+      if(inputImage.at<float>(i,j) > 0 && !boolpointer[depthThreshold.rows*i + j]) {
       //if(rowp[j] > 0) {
         //std::cout << "[(" << i << ", " << j << ")]" << std::endl;
         curblobArea = 0;
@@ -215,7 +245,7 @@ void explore(const cv::Mat& inputImage, cv::Mat& outputImage, int target) {
         curmaxYBound = 0;
 
         //explore(outputImage, target, i, j);
-        explore2(target, i, j, boolpointer);
+        explore3(target, i, j, boolpointer);
     
         /*pixels = 0;
         for(ii = 0; ii < inputImage.rows; ii++) {
@@ -246,7 +276,8 @@ void explore(const cv::Mat& inputImage, cv::Mat& outputImage, int target) {
   std::cout << "(" << maxXBound << ", " << maxYBound << ")" << std::endl;
   std::cout << "------------------------------------------------------------" << std::endl;
   
-  //delete [] boolpointer;
+  free(boolpointer);
+  //delete[] boolpointer;
   //delete jj, ii, i, j, pixels;
 }
 
