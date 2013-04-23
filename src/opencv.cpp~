@@ -34,6 +34,8 @@ int curmaxYBound;
 
 int totalArea;
 
+cv::Mat depthThreshold;
+
 void printImageData(const cv::Mat& input, std::string description){
   std::cout << description << std::endl;
   std::cout << "matrix type: " << input.type() << std::endl;
@@ -104,11 +106,51 @@ void explore(cv::Mat& outputImage, int target, int row, int col) {
         curmaxXBound = col;
       if(curmaxYBound < row)
         curmaxYBound = row;
-      //is this the problem? outputImage changes after each time explore is called
+      //is this the problem? outputImage gets copied after each time explore is called
       explore(outputImage, target, row-1, col);
       explore(outputImage, target, row+1, col);
       explore(outputImage, target, row, col-1);
       explore(outputImage, target, row, col+1);
+      /*int rn[4] = {1, -1, 0, 0};
+      int cn[4] = {0, 0, -1, 1};
+      for(int i=0;i<4;i++){
+        cv::Mat temp = outputImage.clone();
+        explore(temp, target, row+rn[i], col+cn[i]);      
+      }*/
+
+      /*explore(outputImage, target, row-1, col-1);
+      explore(outputImage, target, row-1, col+1);
+      explore(outputImage, target, row+1, col-1);
+      explore(outputImage, target, row+1, col+1);*/
+    }
+  }
+}
+
+//this uses a separate 2D array of booleans instead of modifying outputImage
+void explore2(int target, int row, int col, bool *checked) {
+  if(row >=0 && row <= depthThreshold.rows && col >=0 && col <= depthThreshold.cols){
+    float* rowp = depthThreshold.ptr<float>(row);
+    //if(outputImage.at<float>(row,col) > 0){
+      if(rowp[col] > 0 && !checked[row*depthThreshold.rows+col]){
+      //std::cout << "target found at " << row << ", " << col << std::endl;
+      totalArea++;
+      //outputImage.at<float>(row,col) = 0;
+      curblobArea++;
+      checked[row*depthThreshold.rows+col]=true;
+      //std::cout << row << ", " << col << std::endl;
+      if(curminXBound > col)
+        curminXBound = col;
+      if(curminYBound > row)
+        curminYBound = row;
+      if(curmaxXBound < col)
+        curmaxXBound = col;
+      if(curmaxYBound < row)
+        curmaxYBound = row;
+      //is this the problem? outputImage changes after each time explore is called
+      explore2(target, row-1, col, checked);
+      explore2(target, row+1, col, checked);
+      explore2(target, row, col-1, checked);
+      explore2(target, row, col+1, checked);
       /*int rn[4] = {1, -1, 0, 0};
       int cn[4] = {0, 0, -1, 1};
       for(int i=0;i<4;i++){
@@ -132,18 +174,24 @@ void explore(const cv::Mat& inputImage, cv::Mat& outputImage, int target) {
   maxYBound = 0;
   totalArea = 0;
   int i = 0, j = 0;
+  bool checked[depthThreshold.rows*depthThreshold.cols];
+  bool *boolpointer = checked;
+  /*for(i = 0; i < depthThreshold.rows*depthThreshold.cols; i++){
+    boolpointer[i] = false;
+  }*/
+  //bool *boolpointer = new bool[depthThreshold.rows*depthThreshold.cols];
   
 
 //Print and checking the blob area
 
 
-  std::cout << "[total area = " << totalArea << "]" << std::endl;
+ /* std::cout << "[total area = " << totalArea << "]" << std::endl;
   std::cout << "max blob = " << blobArea << ", (" << minXBound << ", " << minYBound << "), ";
   std::cout << "(" << maxXBound << ", " << maxYBound << ")" << std::endl;
-  std::cout << "------------------------------------------------------------" << std::endl;
+  std::cout << "------------------------------------------------------------" << std::endl;*/
   
   /*int pixels = 0;
-  for(int ii=0; ii < inputImage.rows; ii++) {
+  for(int ii=0; i < inputImage.rows; ii++) {
     for(int jj=0; jj < inputImage.cols; jj++) {
       if(inputImage.at<float>(ii,jj) > 0)
         pixels++;
@@ -166,7 +214,8 @@ void explore(const cv::Mat& inputImage, cv::Mat& outputImage, int target) {
         curmaxXBound = 0;
         curmaxYBound = 0;
 
-        explore(outputImage, target, i, j);
+        //explore(outputImage, target, i, j);
+        explore2(target, i, j, boolpointer);
     
         /*pixels = 0;
         for(ii = 0; ii < inputImage.rows; ii++) {
@@ -197,6 +246,7 @@ void explore(const cv::Mat& inputImage, cv::Mat& outputImage, int target) {
   std::cout << "(" << maxXBound << ", " << maxYBound << ")" << std::endl;
   std::cout << "------------------------------------------------------------" << std::endl;
   
+  //delete [] boolpointer;
   //delete jj, ii, i, j, pixels;
 }
 
@@ -346,16 +396,16 @@ void depthCallback(const sensor_msgs::ImageConstPtr &msg)
 {
   //Load image into OpenCV
   cv_bridge::CvImagePtr bridge_image = cv_bridge::toCvCopy(msg, msg->encoding);
-  std::cout << "bridge_image created" << std::endl;
+  //std::cout << "bridge_image created" << std::endl;
   cv::Mat cvImage = bridge_image->image;
-  std::cout << "cvImage created" << std::endl;
+  //std::cout << "cvImage created" << std::endl;
   cv::Mat depthThresholdOut;
   
   //set cv_bridge image matrix to output and publish
   getDepthThresholdImage(cvImage, depthThresholdOut);
-  std::cout << "got depthThresholdImage" << std::endl;
+  //std::cout << "got depthThresholdImage" << std::endl;
   bridge_image->image = depthThresholdOut;
-  std::cout << "bridge_image->image = depthThresholdOut" << std::endl;
+  //std::cout << "bridge_image->image = depthThresholdOut" << std::endl;
   depthThresholdPub.publish(bridge_image->toImageMsg());
   //printImagePixels(depthThresholdOut, "output depth threshold");
   //std::cout << depthThresholdOut << "\n*****\n" << std::endl;
@@ -363,7 +413,8 @@ void depthCallback(const sensor_msgs::ImageConstPtr &msg)
   //cv::Mat temp;
   //depthThresholdOut.copyTo(temp);
   
-  printImageData(depthThresholdOut, "depthThesholdOut");
+  depthThreshold = depthThresholdOut;
+  //printImageData(depthThresholdOut, "depthThesholdOut");
   explore(depthThresholdOut, depthThresholdOut, 255);
   
 /*
@@ -375,12 +426,12 @@ void depthCallback(const sensor_msgs::ImageConstPtr &msg)
   depthThresholdBWPub.publish(bridge_image->toImageMsg());
 */
 
-  delete &depthThresholdOut;
-  delete &cvImage;
+  //delete &depthThresholdOut;
+  //delete &cvImage;
 
-/*cvReleaseMat(&cvImage);
-cvReleaseMat(&depthThresholdOut); 
-*/
+  //cvReleaseMat(&cvImage);
+  //cvReleaseMat(&depthThresholdOut); 
+
 }
 
 //default callback method, copies input topic
