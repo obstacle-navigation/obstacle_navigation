@@ -1,4 +1,6 @@
 FILE(REMOVE_RECURSE
+  "../msg_gen"
+  "../src/obstacle_navigation/msg"
   "CMakeFiles/listener.dir/src/listener.cpp.o"
   "../bin/listener.pdb"
   "../bin/listener"

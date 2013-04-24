@@ -32,19 +32,136 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation
+CMAKE_SOURCE_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build
+CMAKE_BINARY_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build
 
 # Utility rule file for ROSBUILD_genmsg_cpp.
 
 # Include the progress variables for this target.
 include CMakeFiles/ROSBUILD_genmsg_cpp.dir/progress.make
 
-CMakeFiles/ROSBUILD_genmsg_cpp:
+CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/obstacle_navigation/Blobs.h
+CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/obstacle_navigation/Blob.h
+
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: ../msg/Blobs.msg
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/roscpp/rosbuild/scripts/genmsg_cpp.py
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/lib/roslib/gendeps
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/std_msgs/msg/Header.msg
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: ../msg/Blob.msg
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: ../manifest.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/cpp_common/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/rostime/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/roscpp_traits/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/roscpp_serialization/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/genmsg/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/genpy/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/message_runtime/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/rosconsole/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/std_msgs/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/rosgraph_msgs/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/xmlrpcpp/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/roscpp/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/geometry_msgs/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/sensor_msgs/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/camera_calibration_parsers/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/message_filters/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/console_bridge/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/class_loader/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/catkin/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/rospack/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/roslib/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/pluginlib/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/image_transport/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/camera_info_manager/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/rosgraph/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/rospy/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/topic_tools/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/rosbag/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/rosmsg/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/rosservice/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/dynamic_reconfigure/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/bond/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/smclib/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/bondcpp/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/nodelet/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/openni_camera/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/opencv2/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/cv_bridge/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/nodelet_topic_tools/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/flann/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/pcl_msgs/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/pcl/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/tf/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/pcl_ros/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/depth_image_proc/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/image_geometry/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/image_proc/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blobs.h: /opt/ros/groovy/share/openni_launch/package.xml
+	$(CMAKE_COMMAND) -E cmake_progress_report /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/cpp/include/obstacle_navigation/Blobs.h"
+	/opt/ros/groovy/share/roscpp/rosbuild/scripts/genmsg_cpp.py /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/msg/Blobs.msg
+
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: ../msg/Blob.msg
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/roscpp/rosbuild/scripts/genmsg_cpp.py
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/lib/roslib/gendeps
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: ../manifest.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/cpp_common/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/rostime/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/roscpp_traits/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/roscpp_serialization/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/genmsg/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/genpy/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/message_runtime/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/rosconsole/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/std_msgs/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/rosgraph_msgs/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/xmlrpcpp/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/roscpp/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/geometry_msgs/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/sensor_msgs/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/camera_calibration_parsers/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/message_filters/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/console_bridge/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/class_loader/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/catkin/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/rospack/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/roslib/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/pluginlib/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/image_transport/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/camera_info_manager/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/rosgraph/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/rospy/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/topic_tools/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/rosbag/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/rosmsg/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/rosservice/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/dynamic_reconfigure/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/bond/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/smclib/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/bondcpp/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/nodelet/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/openni_camera/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/opencv2/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/cv_bridge/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/nodelet_topic_tools/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/flann/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/pcl_msgs/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/pcl/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/tf/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/pcl_ros/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/depth_image_proc/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/image_geometry/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/image_proc/package.xml
+../msg_gen/cpp/include/obstacle_navigation/Blob.h: /opt/ros/groovy/share/openni_launch/package.xml
+	$(CMAKE_COMMAND) -E cmake_progress_report /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/cpp/include/obstacle_navigation/Blob.h"
+	/opt/ros/groovy/share/roscpp/rosbuild/scripts/genmsg_cpp.py /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/msg/Blob.msg
 
 ROSBUILD_genmsg_cpp: CMakeFiles/ROSBUILD_genmsg_cpp
+ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/obstacle_navigation/Blobs.h
+ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/obstacle_navigation/Blob.h
 ROSBUILD_genmsg_cpp: CMakeFiles/ROSBUILD_genmsg_cpp.dir/build.make
 .PHONY : ROSBUILD_genmsg_cpp
 
@@ -57,6 +174,6 @@ CMakeFiles/ROSBUILD_genmsg_cpp.dir/clean:
 .PHONY : CMakeFiles/ROSBUILD_genmsg_cpp.dir/clean
 
 CMakeFiles/ROSBUILD_genmsg_cpp.dir/depend:
-	cd /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles/ROSBUILD_genmsg_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/ROSBUILD_genmsg_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ROSBUILD_genmsg_cpp.dir/depend
 

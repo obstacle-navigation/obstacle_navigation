@@ -2,11 +2,10 @@
 # generated from catkin/cmake/templates/env.sh.in
 
 if [ $# -eq 0 ] ; then
-  /bin/echo "Entering environment at '/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/catkin_generated', type 'exit' to leave"
-  . "/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/catkin_generated/setup_cached.sh"
-  "$SHELL" -i
-  /bin/echo "Exiting environment at '/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/catkin_generated'"
+  /bin/echo "Usage: env.sh COMMANDS"
+  /bin/echo "Calling env.sh without arguments is not supported anymore. Instead spawn a subshell and source a setup file manually."
+  exit 1
 else
-  . "/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/catkin_generated/setup_cached.sh"
+  . "/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/catkin_generated/setup_cached.sh"
   exec "$@"
 fi

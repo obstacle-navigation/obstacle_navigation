@@ -1,4 +1,6 @@
 FILE(REMOVE_RECURSE
+  "../msg_gen"
+  "../src/obstacle_navigation/msg"
   "CMakeFiles/opencv.dir/src/opencv.cpp.o"
   "../bin/opencv.pdb"
   "../bin/opencv"

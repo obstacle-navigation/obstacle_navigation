@@ -2,11 +2,10 @@
 # generated from catkin/cmake/templates/env.sh.in
 
 if [ $# -eq 0 ] ; then
-  /bin/echo "Entering environment at '/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/devel', type 'exit' to leave"
-  . "/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/devel/setup.sh"
-  "$SHELL" -i
-  /bin/echo "Exiting environment at '/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/devel'"
+  /bin/echo "Usage: env.sh COMMANDS"
+  /bin/echo "Calling env.sh without arguments is not supported anymore. Instead spawn a subshell and source a setup file manually."
+  exit 1
 else
-  . "/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/devel/setup.sh"
+  . "/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/devel/setup.sh"
   exec "$@"
 fi

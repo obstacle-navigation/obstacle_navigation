@@ -1,4 +1,6 @@
 FILE(REMOVE_RECURSE
+  "../msg_gen"
+  "../src/obstacle_navigation/msg"
   "CMakeFiles/transporter.dir/src/transporter.cpp.o"
   "../bin/transporter.pdb"
   "../bin/transporter"

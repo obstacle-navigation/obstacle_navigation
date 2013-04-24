@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation
+CMAKE_SOURCE_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build
+CMAKE_BINARY_DIR = /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build
 
 # Utility rule file for rosbuild_clean-test-results.
 
@@ -43,7 +43,7 @@ CMAKE_BINARY_DIR = /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/buil
 include CMakeFiles/rosbuild_clean-test-results.dir/progress.make
 
 CMakeFiles/rosbuild_clean-test-results:
-	if ! rm -rf /home/fri/ros/catkin_ws/build/test_results/obstacle-navigation; then echo WARNING:\ failed\ to\ remove\ test-results\ directory ; fi
+	if ! rm -rf /nishome/eysalee/ros/catkin_ws/build/test_results/obstacle_navigation; then echo WARNING:\ failed\ to\ remove\ test-results\ directory ; fi
 
 rosbuild_clean-test-results: CMakeFiles/rosbuild_clean-test-results
 rosbuild_clean-test-results: CMakeFiles/rosbuild_clean-test-results.dir/build.make
@@ -58,6 +58,6 @@ CMakeFiles/rosbuild_clean-test-results.dir/clean:
 .PHONY : CMakeFiles/rosbuild_clean-test-results.dir/clean
 
 CMakeFiles/rosbuild_clean-test-results.dir/depend:
-	cd /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build /home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/CMakeFiles/rosbuild_clean-test-results.dir/DependInfo.cmake --color=$(COLOR)
+	cd /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/rosbuild_clean-test-results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rosbuild_clean-test-results.dir/depend
 

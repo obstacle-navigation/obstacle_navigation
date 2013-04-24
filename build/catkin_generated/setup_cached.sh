@@ -7,12 +7,12 @@
 # new environment variables
 
 # modified environment variables
-export CATKIN_TEST_RESULTS_DIR="/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/test_results"
-export CMAKE_PREFIX_PATH="/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/devel:$CMAKE_PREFIX_PATH"
-export CPATH="/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/devel/include:$CPATH"
-export LD_LIBRARY_PATH="/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/devel/lib:$LD_LIBRARY_PATH"
-export PATH="/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/devel/bin:$PATH"
-export PKG_CONFIG_PATH="/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PYTHONPATH="/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/devel/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROS_PACKAGE_PATH="/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation:/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation:/nishome/eysalee/ros/rosbuild_ws/class-code/proj1:/home/fri/ros/catkin_ws/src:/opt/ros/groovy/share:/opt/ros/groovy/stacks"
-export ROS_TEST_RESULTS_DIR="/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation/build/test_results"
+export CATKIN_TEST_RESULTS_DIR="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/test_results"
+export CMAKE_PREFIX_PATH="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/devel:$CMAKE_PREFIX_PATH"
+export CPATH="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/devel/include:$CPATH"
+export LD_LIBRARY_PATH="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/devel/lib:$LD_LIBRARY_PATH"
+export PATH="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/devel/bin:$PATH"
+export PKG_CONFIG_PATH="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PYTHONPATH="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/devel/lib/python2.7/dist-packages:$PYTHONPATH"
+export ROS_PACKAGE_PATH="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation:/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation:/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation:/nishome/eysalee/ros/rosbuild_ws/class-code/proj1:/nishome/eysalee/ros/catkin_ws/src:/opt/ros/groovy/share:/opt/ros/groovy/stacks"
+export ROS_TEST_RESULTS_DIR="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/test_results"
