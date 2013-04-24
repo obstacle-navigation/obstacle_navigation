@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/src/opencv.cpp
+/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/src/depth-blobs.cpp
 ros/ros.h
 -
 opencv/cv.h
@@ -22,6 +22,10 @@ opencv2/imgproc/imgproc.hpp
 opencv2/highgui/highgui.hpp
 -
 cstdio
+-
+obstacle_navigation/Blob.h
+-
+obstacle_navigation/Blobs.h
 -
 
 /opt/ros/groovy/include/XmlRpcDecl.h

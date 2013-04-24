@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/src/opencv.cpp
+/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/src/depth_blobs.cpp
 ros/ros.h
 -
 opencv/cv.h

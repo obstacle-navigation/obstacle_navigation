@@ -189,17 +189,17 @@ clean_test_results/fast:
 .PHONY : clean_test_results/fast
 
 #=============================================================================
-# Target rules for targets named depth-blobs
+# Target rules for targets named depth_blobs
 
 # Build rule for target.
-depth-blobs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 depth-blobs
-.PHONY : depth-blobs
+depth_blobs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 depth_blobs
+.PHONY : depth_blobs
 
 # fast build rule for target.
-depth-blobs/fast:
-	$(MAKE) -f CMakeFiles/depth-blobs.dir/build.make CMakeFiles/depth-blobs.dir/build
-.PHONY : depth-blobs/fast
+depth_blobs/fast:
+	$(MAKE) -f CMakeFiles/depth_blobs.dir/build.make CMakeFiles/depth_blobs.dir/build
+.PHONY : depth_blobs/fast
 
 #=============================================================================
 # Target rules for targets named doxygen
@@ -291,19 +291,6 @@ rospack_genmsg: cmake_check_build_system
 rospack_genmsg/fast:
 	$(MAKE) -f CMakeFiles/rospack_genmsg.dir/build.make CMakeFiles/rospack_genmsg.dir/build
 .PHONY : rospack_genmsg/fast
-
-#=============================================================================
-# Target rules for targets named rospack_genmsg_all
-
-# Build rule for target.
-rospack_genmsg_all: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rospack_genmsg_all
-.PHONY : rospack_genmsg_all
-
-# fast build rule for target.
-rospack_genmsg_all/fast:
-	$(MAKE) -f CMakeFiles/rospack_genmsg_all.dir/build.make CMakeFiles/rospack_genmsg_all.dir/build
-.PHONY : rospack_genmsg_all/fast
 
 #=============================================================================
 # Target rules for targets named rospack_genmsg_libexe
@@ -461,29 +448,29 @@ gtest_main/fast:
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
-src/depth-blobs.o: src/depth-blobs.cpp.o
-.PHONY : src/depth-blobs.o
+src/depth_blobs.o: src/depth_blobs.cpp.o
+.PHONY : src/depth_blobs.o
 
 # target to build an object file
-src/depth-blobs.cpp.o:
-	$(MAKE) -f CMakeFiles/depth-blobs.dir/build.make CMakeFiles/depth-blobs.dir/src/depth-blobs.cpp.o
-.PHONY : src/depth-blobs.cpp.o
+src/depth_blobs.cpp.o:
+	$(MAKE) -f CMakeFiles/depth_blobs.dir/build.make CMakeFiles/depth_blobs.dir/src/depth_blobs.cpp.o
+.PHONY : src/depth_blobs.cpp.o
 
-src/depth-blobs.i: src/depth-blobs.cpp.i
-.PHONY : src/depth-blobs.i
+src/depth_blobs.i: src/depth_blobs.cpp.i
+.PHONY : src/depth_blobs.i
 
 # target to preprocess a source file
-src/depth-blobs.cpp.i:
-	$(MAKE) -f CMakeFiles/depth-blobs.dir/build.make CMakeFiles/depth-blobs.dir/src/depth-blobs.cpp.i
-.PHONY : src/depth-blobs.cpp.i
+src/depth_blobs.cpp.i:
+	$(MAKE) -f CMakeFiles/depth_blobs.dir/build.make CMakeFiles/depth_blobs.dir/src/depth_blobs.cpp.i
+.PHONY : src/depth_blobs.cpp.i
 
-src/depth-blobs.s: src/depth-blobs.cpp.s
-.PHONY : src/depth-blobs.s
+src/depth_blobs.s: src/depth_blobs.cpp.s
+.PHONY : src/depth_blobs.s
 
 # target to generate assembly for a file
-src/depth-blobs.cpp.s:
-	$(MAKE) -f CMakeFiles/depth-blobs.dir/build.make CMakeFiles/depth-blobs.dir/src/depth-blobs.cpp.s
-.PHONY : src/depth-blobs.cpp.s
+src/depth_blobs.cpp.s:
+	$(MAKE) -f CMakeFiles/depth_blobs.dir/build.make CMakeFiles/depth_blobs.dir/src/depth_blobs.cpp.s
+.PHONY : src/depth_blobs.cpp.s
 
 src/listener.o: src/listener.cpp.o
 .PHONY : src/listener.o
@@ -591,7 +578,7 @@ help:
 	@echo "... ROSBUILD_genmsg_py"
 	@echo "... ROSBUILD_gensrv_cpp"
 	@echo "... clean_test_results"
-	@echo "... depth-blobs"
+	@echo "... depth_blobs"
 	@echo "... doxygen"
 	@echo "... edit_cache"
 	@echo "... install"
@@ -605,7 +592,6 @@ help:
 	@echo "... rosbuild_precompile"
 	@echo "... rosbuild_premsgsrvgen"
 	@echo "... rospack_genmsg"
-	@echo "... rospack_genmsg_all"
 	@echo "... rospack_genmsg_libexe"
 	@echo "... rospack_gensrv"
 	@echo "... run_tests"
@@ -618,9 +604,9 @@ help:
 	@echo "... transporter"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... src/depth-blobs.o"
-	@echo "... src/depth-blobs.i"
-	@echo "... src/depth-blobs.s"
+	@echo "... src/depth_blobs.o"
+	@echo "... src/depth_blobs.i"
+	@echo "... src/depth_blobs.s"
 	@echo "... src/listener.o"
 	@echo "... src/listener.i"
 	@echo "... src/listener.s"
