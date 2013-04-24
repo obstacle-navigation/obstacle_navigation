@@ -6,8 +6,8 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <cstdio>
-//#include <obstacle_navigation/Blob.h>
-//#include <obstacle_navigation/Blobs.h>
+#include <obstacle_navigation/Blob.h>
+#include <obstacle_navigation/Blobs.h>
 
 //to remap a subscriber to a different topic, type:
 //$ rosrun package_name node_name initial_topic:=remapped_topic
@@ -15,6 +15,7 @@
 const int slice_count = 3;
 
 image_transport::Publisher depthThresholdPub;
+ros::Publisher blobPub;
 
 int blobArea;
 int minXBound;
@@ -32,6 +33,7 @@ int totalArea;
 
 cv::Mat depthThreshold;
 
+obstacle_navigation::Blobs blob_message;
 int blobindex = 0;
 int blobs[slice_count][7];
 
@@ -128,6 +130,14 @@ void explore(const cv::Mat& inputImage, int target) {
   blobs[blobindex][4] = maxXBound;			//right
   blobs[blobindex][5] = minYBound;			//top
   blobs[blobindex][6] = maxYBound;			//bottom
+
+  blob_message.blobs[blobindex].area = blobArea;
+  blob_message.blobs[blobindex].x = (maxXBound + minXBound)/2;
+  blob_message.blobs[blobindex].y = (maxYBound + minYBound)/2;
+  blob_message.blobs[blobindex].left = minXBound;
+  blob_message.blobs[blobindex].right = maxXBound;
+  blob_message.blobs[blobindex].top = minYBound;
+  blob_message.blobs[blobindex].bottom = maxYBound;
   //blobindex is set at depthCallback loop
   
   free(boolpointer);
@@ -161,12 +171,13 @@ void depthCallback(const sensor_msgs::ImageConstPtr &msg)
   cv::Mat cvImage = bridge_image->image;
   cv::Mat depthThresholdOut;
   
-  for(int i=slice_count; i>=0; i--){
+  for(int i=slice_count-1; i>=0; i--){
     blobindex = i; 
     getDepthThresholdImage(cvImage, depthThresholdOut, i*1.85, (i+1)*1.85);
     explore(depthThresholdOut, 255);
     printblob(blobindex);
   }
+  blobPub.publish(blob_message);
   //set cv_bridge image matrix to output and publish
   bridge_image->image = depthThresholdOut;
   depthThresholdPub.publish(bridge_image->toImageMsg());
@@ -184,7 +195,8 @@ int main( int argc, char** argv)
   image_transport::ImageTransport it(n);
   image_transport::Subscriber depthSub = it.subscribe("/camera/depth/image", 1, depthCallback);
   //Set up image publishers
-  depthThresholdPub = it.advertise("obsnav/depth_blobs/threshold",1);
+  depthThresholdPub = it.advertise("/obsnav/depth_blobs/threshold",1);
+  blobPub = n.advertise<obstacle_navigation::Blobs>("/obsnav/depth_blobs/blobs",1);
   
   ROS_INFO("depth_blobs Started");
   //Transfer control to ROS

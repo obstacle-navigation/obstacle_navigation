@@ -15,6 +15,7 @@ SET(CMAKE_C_INCLUDE_PATH
   "/opt/ros/groovy/include/opencv"
   "/usr/include/libusb-1.0"
   "/usr/include/ni"
+  "../msg_gen/cpp/include"
   )
 SET(CMAKE_CXX_INCLUDE_PATH ${CMAKE_C_INCLUDE_PATH})
 SET(CMAKE_Fortran_INCLUDE_PATH ${CMAKE_C_INCLUDE_PATH})

@@ -17,7 +17,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 #uncomment if you have defined messages
-#rosbuild_genmsg()
+rosbuild_genmsg()
 #uncomment if you have defined services
 #rosbuild_gensrv()
 
@@ -28,8 +28,8 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 #rosbuild_add_executable(example examples/example.cpp)
 #target_link_libraries(example ${PROJECT_NAME})
-rosbuild_add_executable(listener src/listener.cpp)
-rosbuild_add_executable(transporter src/transporter.cpp)
+#rosbuild_add_executable(listener src/listener.cpp)
+#rosbuild_add_executable(transporter src/transporter.cpp)
 rosbuild_add_executable(opencv src/opencv.cpp)
 rosbuild_add_executable(testing src/testing.cpp)
 rosbuild_add_executable(depth_blobs src/depth_blobs.cpp)

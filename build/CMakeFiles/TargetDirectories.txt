@@ -6,12 +6,12 @@
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/doxygen.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/gtest/CMakeFiles/gtest.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/gtest/CMakeFiles/gtest_main.dir
-/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/listener.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/opencv.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/rosbuild_clean-test-results.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/rosbuild_precompile.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/rosbuild_premsgsrvgen.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/rospack_genmsg.dir
+/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/rospack_genmsg_all.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/rospack_genmsg_libexe.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/rospack_gensrv.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/run_tests.dir
@@ -21,4 +21,3 @@
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/test-results-run.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/testing.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/tests.dir
-/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/transporter.dir
