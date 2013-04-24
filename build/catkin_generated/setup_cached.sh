@@ -14,5 +14,5 @@ export LD_LIBRARY_PATH="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_nav
 export PATH="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/devel/bin:$PATH"
 export PKG_CONFIG_PATH="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PYTHONPATH="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/devel/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROS_PACKAGE_PATH="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation:/home/fri/ros/rosbuild_ws/class-code/obstacle-navigation:/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle-navigation:/nishome/eysalee/ros/rosbuild_ws/class-code/proj1:/nishome/eysalee/ros/catkin_ws/src:/opt/ros/groovy/share:/opt/ros/groovy/stacks"
+export ROS_PACKAGE_PATH="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation:/nishome/eysalee/ros/catkin_ws/src:/opt/ros/groovy/share:/opt/ros/groovy/stacks"
 export ROS_TEST_RESULTS_DIR="/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/test_results"

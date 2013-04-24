@@ -1,5 +1,3 @@
-float32 mindepth
-float32 maxdepth
 uint32 area
 uint32 x
 uint32 y
