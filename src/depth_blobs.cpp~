@@ -1,4 +1,5 @@
 #include <ros/ros.h>
+#include <ros/time.h>
 #include <opencv/cv.h>
 #include <cv_bridge/cv_bridge.h>
 #include <sensor_msgs/Image.h>
@@ -123,13 +124,13 @@ void explore(const cv::Mat& inputImage, int target) {
   std::cout << "(" << maxXBound << ", " << maxYBound << ")" << std::endl;
   std::cout << "------------------------------------------------------------" << std::endl;*/
 
-  blobs[blobindex][0] = blobArea;			//area
+  /*blobs[blobindex][0] = blobArea;			//area
   blobs[blobindex][1] = (maxXBound + minXBound)/2;	//center x
   blobs[blobindex][2] = (maxYBound + minYBound)/2;	//center y
   blobs[blobindex][3] = minXBound;			//left
   blobs[blobindex][4] = maxXBound;			//right
   blobs[blobindex][5] = minYBound;			//top
-  blobs[blobindex][6] = maxYBound;			//bottom
+  blobs[blobindex][6] = maxYBound;			//bottom*/
 
   blob_message.blobs[blobindex].area = blobArea;
   blob_message.blobs[blobindex].x = (maxXBound + minXBound)/2;
@@ -171,17 +172,24 @@ void depthCallback(const sensor_msgs::ImageConstPtr &msg)
   cv::Mat cvImage = bridge_image->image;
   cv::Mat depthThresholdOut;
   
-  for(int i=slice_count-1; i>=0; i--){
+  blob_message.blobs.resize(slice_count);
+  for(int i=0; i<slice_count; i++){
     blobindex = i; 
     getDepthThresholdImage(cvImage, depthThresholdOut, i*1.85, (i+1)*1.85);
+    blob_message.blobs[blobindex].mindepth = i*1.85;
+    blob_message.blobs[blobindex].maxdepth = (i+1)*1.85;
+    if(i==0){
+        //publish a certain slice, i
+        bridge_image->image = depthThresholdOut;
+        depthThresholdPub.publish(bridge_image->toImageMsg());
+    }
     explore(depthThresholdOut, 255);
-    printblob(blobindex);
+    //printblob(blobindex);
   }
+  //printf("------------------------------------------------\n");
+  blob_message.header.stamp = ros::Time::now();
   blobPub.publish(blob_message);
   //set cv_bridge image matrix to output and publish
-  bridge_image->image = depthThresholdOut;
-  depthThresholdPub.publish(bridge_image->toImageMsg());
-  printf("------------------------------------------------\n");
 }
 
 
@@ -191,12 +199,13 @@ int main( int argc, char** argv)
   ros::init(argc, argv, "opencv");
   ros::NodeHandle n;
 
+  //blob publisher
+  blobPub = n.advertise<obstacle_navigation::Blobs>("/obsnav/depth_blobs/blobs",1);
   //Set up image subscribers
   image_transport::ImageTransport it(n);
   image_transport::Subscriber depthSub = it.subscribe("/camera/depth/image", 1, depthCallback);
   //Set up image publishers
   depthThresholdPub = it.advertise("/obsnav/depth_blobs/threshold",1);
-  blobPub = n.advertise<obstacle_navigation::Blobs>("/obsnav/depth_blobs/blobs",1);
   
   ROS_INFO("depth_blobs Started");
   //Transfer control to ROS

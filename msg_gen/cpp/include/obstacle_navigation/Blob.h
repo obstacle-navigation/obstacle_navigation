@@ -22,7 +22,9 @@ struct Blob_ {
   typedef Blob_<ContainerAllocator> Type;
 
   Blob_()
-  : area(0)
+  : mindepth(0.0)
+  , maxdepth(0.0)
+  , area(0)
   , x(0)
   , y(0)
   , left(0)
@@ -33,7 +35,9 @@ struct Blob_ {
   }
 
   Blob_(const ContainerAllocator& _alloc)
-  : area(0)
+  : mindepth(0.0)
+  , maxdepth(0.0)
+  , area(0)
   , x(0)
   , y(0)
   , left(0)
@@ -42,6 +46,12 @@ struct Blob_ {
   , bottom(0)
   {
   }
+
+  typedef float _mindepth_type;
+  float mindepth;
+
+  typedef float _maxdepth_type;
+  float maxdepth;
 
   typedef uint32_t _area_type;
   uint32_t area;
@@ -93,12 +103,12 @@ template<class ContainerAllocator>
 struct MD5Sum< ::obstacle_navigation::Blob_<ContainerAllocator> > {
   static const char* value() 
   {
-    return "e280555c57a56f27d360aaacc2ddb12c";
+    return "06bb95ccb783470dd8374c9e5453bf8b";
   }
 
   static const char* value(const  ::obstacle_navigation::Blob_<ContainerAllocator> &) { return value(); } 
-  static const uint64_t static_value1 = 0xe280555c57a56f27ULL;
-  static const uint64_t static_value2 = 0xd360aaacc2ddb12cULL;
+  static const uint64_t static_value1 = 0x06bb95ccb783470dULL;
+  static const uint64_t static_value2 = 0xd8374c9e5453bf8bULL;
 };
 
 template<class ContainerAllocator>
@@ -115,7 +125,9 @@ template<class ContainerAllocator>
 struct Definition< ::obstacle_navigation::Blob_<ContainerAllocator> > {
   static const char* value() 
   {
-    return "uint32 area\n\
+    return "float32 mindepth\n\
+float32 maxdepth\n\
+uint32 area\n\
 uint32 x\n\
 uint32 y\n\
 uint32 left\n\
@@ -142,6 +154,8 @@ template<class ContainerAllocator> struct Serializer< ::obstacle_navigation::Blo
 {
   template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
   {
+    stream.next(m.mindepth);
+    stream.next(m.maxdepth);
     stream.next(m.area);
     stream.next(m.x);
     stream.next(m.y);
@@ -166,6 +180,10 @@ struct Printer< ::obstacle_navigation::Blob_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const  ::obstacle_navigation::Blob_<ContainerAllocator> & v) 
   {
+    s << indent << "mindepth: ";
+    Printer<float>::stream(s, indent + "  ", v.mindepth);
+    s << indent << "maxdepth: ";
+    Printer<float>::stream(s, indent + "  ", v.maxdepth);
     s << indent << "area: ";
     Printer<uint32_t>::stream(s, indent + "  ", v.area);
     s << indent << "x: ";

@@ -54,10 +54,8 @@ std_msgs/Header.h
 obstacle_navigation/Blob.h
 ../msg_gen/cpp/include/obstacle_navigation/obstacle_navigation/Blob.h
 
-/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/src/depth_blobs.cpp
+/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/src/grabcut.cpp
 ros/ros.h
--
-ros/time.h
 -
 opencv/cv.h
 -
@@ -67,13 +65,9 @@ sensor_msgs/Image.h
 -
 image_transport/image_transport.h
 -
-opencv2/imgproc/imgproc.hpp
--
 opencv2/highgui/highgui.hpp
 -
-cstdio
--
-obstacle_navigation/Blob.h
+opencv2/imgproc/imgproc.hpp
 -
 obstacle_navigation/Blobs.h
 -

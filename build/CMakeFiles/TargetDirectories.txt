@@ -4,6 +4,7 @@
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/clean_test_results.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/depth_blobs.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/doxygen.dir
+/nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/grabcut.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/gtest/CMakeFiles/gtest.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/gtest/CMakeFiles/gtest_main.dir
 /nishome/eysalee/ros/rosbuild_ws/class-code/obstacle_navigation/build/CMakeFiles/opencv.dir

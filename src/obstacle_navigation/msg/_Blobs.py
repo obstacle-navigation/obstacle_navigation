@@ -8,7 +8,7 @@ import obstacle_navigation.msg
 import std_msgs.msg
 
 class Blobs(genpy.Message):
-  _md5sum = "9d5b9c9f49540516c8a955130e83f89e"
+  _md5sum = "8c71fcb3e322bfd46419c79b24d780f3"
   _type = "obstacle_navigation/Blobs"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
@@ -37,6 +37,8 @@ string frame_id
 
 ================================================================================
 MSG: obstacle_navigation/Blob
+float32 mindepth
+float32 maxdepth
 uint32 area
 uint32 x
 uint32 y
@@ -109,7 +111,7 @@ uint32 bottom
       buff.write(_struct_I.pack(length))
       for val1 in self.blobs:
         _x = val1
-        buff.write(_struct_7I.pack(_x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom))
+        buff.write(_struct_2f7I.pack(_x.mindepth, _x.maxdepth, _x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -149,8 +151,8 @@ uint32 bottom
         val1 = obstacle_navigation.msg.Blob()
         _x = val1
         start = end
-        end += 28
-        (_x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom,) = _struct_7I.unpack(str[start:end])
+        end += 36
+        (_x.mindepth, _x.maxdepth, _x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom,) = _struct_2f7I.unpack(str[start:end])
         self.blobs.append(val1)
       return self
     except struct.error as e:
@@ -178,7 +180,7 @@ uint32 bottom
       buff.write(_struct_I.pack(length))
       for val1 in self.blobs:
         _x = val1
-        buff.write(_struct_7I.pack(_x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom))
+        buff.write(_struct_2f7I.pack(_x.mindepth, _x.maxdepth, _x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -219,13 +221,13 @@ uint32 bottom
         val1 = obstacle_navigation.msg.Blob()
         _x = val1
         start = end
-        end += 28
-        (_x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom,) = _struct_7I.unpack(str[start:end])
+        end += 36
+        (_x.mindepth, _x.maxdepth, _x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom,) = _struct_2f7I.unpack(str[start:end])
         self.blobs.append(val1)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
+_struct_2f7I = struct.Struct("<2f7I")
 _struct_3I = struct.Struct("<3I")
-_struct_7I = struct.Struct("<7I")

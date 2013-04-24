@@ -90,7 +90,6 @@ void grabcutCallback(const sensor_msgs::ImageConstPtr &msg){
     bridge_image->image = foreground;
     ROS_INFO("GRABCUT APPLIED!!");
     grabcutPub.publish(bridge_image->toImageMsg());
-    rect_is_set = false;
   }
   else{
     ROS_INFO("Grabcut not applied");

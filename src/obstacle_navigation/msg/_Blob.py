@@ -6,10 +6,12 @@ import struct
 
 
 class Blob(genpy.Message):
-  _md5sum = "e280555c57a56f27d360aaacc2ddb12c"
+  _md5sum = "06bb95ccb783470dd8374c9e5453bf8b"
   _type = "obstacle_navigation/Blob"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """uint32 area
+  _full_text = """float32 mindepth
+float32 maxdepth
+uint32 area
 uint32 x
 uint32 y
 uint32 left
@@ -18,8 +20,8 @@ uint32 top
 uint32 bottom
 
 """
-  __slots__ = ['area','x','y','left','right','top','bottom']
-  _slot_types = ['uint32','uint32','uint32','uint32','uint32','uint32','uint32']
+  __slots__ = ['mindepth','maxdepth','area','x','y','left','right','top','bottom']
+  _slot_types = ['float32','float32','uint32','uint32','uint32','uint32','uint32','uint32','uint32']
 
   def __init__(self, *args, **kwds):
     """
@@ -29,7 +31,7 @@ uint32 bottom
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       area,x,y,left,right,top,bottom
+       mindepth,maxdepth,area,x,y,left,right,top,bottom
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -38,6 +40,10 @@ uint32 bottom
     if args or kwds:
       super(Blob, self).__init__(*args, **kwds)
       #message fields cannot be None, assign default values for those that are
+      if self.mindepth is None:
+        self.mindepth = 0.
+      if self.maxdepth is None:
+        self.maxdepth = 0.
       if self.area is None:
         self.area = 0
       if self.x is None:
@@ -53,6 +59,8 @@ uint32 bottom
       if self.bottom is None:
         self.bottom = 0
     else:
+      self.mindepth = 0.
+      self.maxdepth = 0.
       self.area = 0
       self.x = 0
       self.y = 0
@@ -74,7 +82,7 @@ uint32 bottom
     """
     try:
       _x = self
-      buff.write(_struct_7I.pack(_x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom))
+      buff.write(_struct_2f7I.pack(_x.mindepth, _x.maxdepth, _x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -87,8 +95,8 @@ uint32 bottom
       end = 0
       _x = self
       start = end
-      end += 28
-      (_x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom,) = _struct_7I.unpack(str[start:end])
+      end += 36
+      (_x.mindepth, _x.maxdepth, _x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom,) = _struct_2f7I.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -102,7 +110,7 @@ uint32 bottom
     """
     try:
       _x = self
-      buff.write(_struct_7I.pack(_x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom))
+      buff.write(_struct_2f7I.pack(_x.mindepth, _x.maxdepth, _x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -116,11 +124,11 @@ uint32 bottom
       end = 0
       _x = self
       start = end
-      end += 28
-      (_x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom,) = _struct_7I.unpack(str[start:end])
+      end += 36
+      (_x.mindepth, _x.maxdepth, _x.area, _x.x, _x.y, _x.left, _x.right, _x.top, _x.bottom,) = _struct_2f7I.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_7I = struct.Struct("<7I")
+_struct_2f7I = struct.Struct("<2f7I")

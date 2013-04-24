@@ -215,6 +215,19 @@ doxygen/fast:
 .PHONY : doxygen/fast
 
 #=============================================================================
+# Target rules for targets named grabcut
+
+# Build rule for target.
+grabcut: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 grabcut
+.PHONY : grabcut
+
+# fast build rule for target.
+grabcut/fast:
+	$(MAKE) -f CMakeFiles/grabcut.dir/build.make CMakeFiles/grabcut.dir/build
+.PHONY : grabcut/fast
+
+#=============================================================================
 # Target rules for targets named opencv
 
 # Build rule for target.
@@ -459,6 +472,30 @@ src/depth_blobs.cpp.s:
 	$(MAKE) -f CMakeFiles/depth_blobs.dir/build.make CMakeFiles/depth_blobs.dir/src/depth_blobs.cpp.s
 .PHONY : src/depth_blobs.cpp.s
 
+src/grabcut.o: src/grabcut.cpp.o
+.PHONY : src/grabcut.o
+
+# target to build an object file
+src/grabcut.cpp.o:
+	$(MAKE) -f CMakeFiles/grabcut.dir/build.make CMakeFiles/grabcut.dir/src/grabcut.cpp.o
+.PHONY : src/grabcut.cpp.o
+
+src/grabcut.i: src/grabcut.cpp.i
+.PHONY : src/grabcut.i
+
+# target to preprocess a source file
+src/grabcut.cpp.i:
+	$(MAKE) -f CMakeFiles/grabcut.dir/build.make CMakeFiles/grabcut.dir/src/grabcut.cpp.i
+.PHONY : src/grabcut.cpp.i
+
+src/grabcut.s: src/grabcut.cpp.s
+.PHONY : src/grabcut.s
+
+# target to generate assembly for a file
+src/grabcut.cpp.s:
+	$(MAKE) -f CMakeFiles/grabcut.dir/build.make CMakeFiles/grabcut.dir/src/grabcut.cpp.s
+.PHONY : src/grabcut.cpp.s
+
 src/opencv.o: src/opencv.cpp.o
 .PHONY : src/opencv.o
 
@@ -520,6 +557,7 @@ help:
 	@echo "... depth_blobs"
 	@echo "... doxygen"
 	@echo "... edit_cache"
+	@echo "... grabcut"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
@@ -545,6 +583,9 @@ help:
 	@echo "... src/depth_blobs.o"
 	@echo "... src/depth_blobs.i"
 	@echo "... src/depth_blobs.s"
+	@echo "... src/grabcut.o"
+	@echo "... src/grabcut.i"
+	@echo "... src/grabcut.s"
 	@echo "... src/opencv.o"
 	@echo "... src/opencv.i"
 	@echo "... src/opencv.s"

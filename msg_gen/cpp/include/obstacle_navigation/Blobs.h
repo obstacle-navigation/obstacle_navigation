@@ -85,12 +85,12 @@ template<class ContainerAllocator>
 struct MD5Sum< ::obstacle_navigation::Blobs_<ContainerAllocator> > {
   static const char* value() 
   {
-    return "9d5b9c9f49540516c8a955130e83f89e";
+    return "8c71fcb3e322bfd46419c79b24d780f3";
   }
 
   static const char* value(const  ::obstacle_navigation::Blobs_<ContainerAllocator> &) { return value(); } 
-  static const uint64_t static_value1 = 0x9d5b9c9f49540516ULL;
-  static const uint64_t static_value2 = 0xc8a955130e83f89eULL;
+  static const uint64_t static_value1 = 0x8c71fcb3e322bfd4ULL;
+  static const uint64_t static_value2 = 0x6419c79b24d780f3ULL;
 };
 
 template<class ContainerAllocator>
@@ -133,6 +133,8 @@ string frame_id\n\
 \n\
 ================================================================================\n\
 MSG: obstacle_navigation/Blob\n\
+float32 mindepth\n\
+float32 maxdepth\n\
 uint32 area\n\
 uint32 x\n\
 uint32 y\n\
