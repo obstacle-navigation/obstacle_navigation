@@ -13,7 +13,8 @@
 //to remap a subscriber to a different topic, type:
 //$ rosrun package_name node_name initial_topic:=remapped_topic
 
-const int slice_count = 3;
+const int slice_count = 4;
+const double slice_size = 1.0;
 
 image_transport::Publisher depthThresholdPub;
 ros::Publisher blobPub;
@@ -175,9 +176,9 @@ void depthCallback(const sensor_msgs::ImageConstPtr &msg)
   blob_message.blobs.resize(slice_count);
   for(int i=0; i<slice_count; i++){
     blobindex = i; 
-    getDepthThresholdImage(cvImage, depthThresholdOut, i*1.85, (i+1)*1.85);
-    blob_message.blobs[blobindex].mindepth = i*1.85;
-    blob_message.blobs[blobindex].maxdepth = (i+1)*1.85;
+    getDepthThresholdImage(cvImage, depthThresholdOut, i*slice_size, (i+1)*slice_size);
+    blob_message.blobs[blobindex].mindepth = i*slice_size;
+    blob_message.blobs[blobindex].maxdepth = (i+1)*slice_size;
     if(i==0){
         //publish a certain slice, i
         bridge_image->image = depthThresholdOut;

@@ -188,6 +188,7 @@ void depthCallback(const sensor_msgs::ImageConstPtr &msg)
   }
   //printf("------------------------------------------------\n");
   blob_message.header.stamp = ros::Time::now();
+  blob_message.blob_count = slice_count;
   blobPub.publish(blob_message);
   //set cv_bridge image matrix to output and publish
 }
