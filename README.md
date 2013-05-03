@@ -4,7 +4,7 @@ This is the source code for the UT Austin FRI project by Victor Yap, Eysa Lee, a
 
 Project Description
 -------------------
-This project involves the detection and tracking of moving obstacles at varying depths using a Kinect sensor. We hope to be able to improve on path planning by giving a wider margin of avoidance to moving obstacles.
+This project involves the detection and tracking of moving obstacles at varying depths using a Kinect sensor.
 
 How to Run
 ----------
@@ -13,9 +13,9 @@ How to Run
 This node reads data from '/camera/depth/image' and publishes to '/obsnav/depth_blobs/threshold' and '/obsnav/depth_blobs/blobs'.
 
 To start this node, run
-    rosrun obstacle_navigation depth_blobs
+<pre><code>rosrun obstacle_navigation depth_blobs</code></pre>
 
-By default, '/obsnav/depth_blobs/threshold' show the depth threshold image for objects within 1 meter of the Kinect sensor. As of now, this can only be changed by modifying the 'depth_blobs.cpp' source code and recompiling. The variables 'slice_count' and 'slice_size' in lines 16 and 17 determine the number of depth slices and their precision. The slice that is displayed to '/obsnav/depth_blobs/threshold' is chosen in line 182.
+The topic '/obsnav/depth_blobs/threshold' displays a depth threshold image. By default, it shows objects between 0 and 1 meters of the Kinect sensor. As of now, this range can only be changed by modifying the 'depth_blobs.cpp' source code and recompiling. The variables 'slice_count' and 'slice_size' in lines 16 and 17 determine the number of depth slices and their precision. The slice that is displayed to '/obsnav/depth_blobs/threshold' is chosen in line 182.
 
 Information about the largest blob in each slice can be found in the topic '/obsnav/depth_blobs/blobs', which uses a custom blobs message.
 
